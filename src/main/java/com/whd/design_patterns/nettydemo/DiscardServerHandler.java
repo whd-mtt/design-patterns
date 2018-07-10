@@ -1,4 +1,4 @@
-package com.whd.server;
+package com.whd.design_patterns.nettydemo;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

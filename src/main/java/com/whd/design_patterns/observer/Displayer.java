@@ -4,7 +4,11 @@ package com.whd.design_patterns.observer;
  * @author whd
  * @className Displayer
  * @date 2018/7/10 14:47
- * @desc Describe the function of this class in one sentence
+ * @desc 所有的观察者都必须要实现的显示接口
  */
 public interface Displayer {
+    /***
+     * 显示信息数据的方法
+     */
+    void disPlay();
 }
