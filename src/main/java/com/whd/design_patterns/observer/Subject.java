@@ -9,11 +9,13 @@ package com.whd.design_patterns.observer;
 public interface Subject {
     /***
      * 注册观察者
+     * @param observer
      */
     void registerObserver(Observer observer);
 
     /***
      * 删除观察者
+     * @param observer
      */
     void removeObserver(Observer observer);
 
