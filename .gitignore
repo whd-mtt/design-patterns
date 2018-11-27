@@ -4,6 +4,7 @@
 gradle/wrapper/gradle-wrapper.properties
 /.idea/
 /target/
+.idea
 
 ### STS ###
 .apt_generated
