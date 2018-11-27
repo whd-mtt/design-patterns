@@ -1,4 +1,4 @@
-package com.whd.designpatterns.singleton;
+package com.whd.designpatterns.singleton.lazy;
 
 import java.util.Objects;
 
@@ -7,19 +7,19 @@ import java.util.Objects;
  * @date 2018/11/27 0:04
  * @apiNote Describe the function of this class in one sentence
  **/
-public class NoSafeLazySingleton {
+public class SafeLazySingleton {
 
-    private NoSafeLazySingleton(){}
+    private SafeLazySingleton(){}
 
     /***
      * 默认加载的时候不实例化，在使用的时候才实例化,但是这种方式不是线程安全的，还需优化
      */
-    private static NoSafeLazySingleton lazySingleton = null;
+    private static SafeLazySingleton lazySingleton = null;
 
-    public static NoSafeLazySingleton getInstance() {
+    public static synchronized SafeLazySingleton getInstance() {
 
         if (Objects.isNull(lazySingleton)){
-            lazySingleton = new NoSafeLazySingleton();
+            lazySingleton = new SafeLazySingleton();
         }
         return lazySingleton;
     }

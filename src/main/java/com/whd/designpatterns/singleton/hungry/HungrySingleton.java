@@ -1,4 +1,4 @@
-package com.whd.designpatterns.singleton;
+package com.whd.designpatterns.singleton.hungry;
 
 /**
  * @author whd.java@gmail.com

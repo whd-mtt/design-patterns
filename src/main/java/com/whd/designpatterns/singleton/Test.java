@@ -1,6 +1,9 @@
 package com.whd.designpatterns.singleton;
 
-import java.util.concurrent.CountDownLatch;
+import com.whd.designpatterns.singleton.lazy.SafeLazyInnerClassSingleton;
+import com.whd.designpatterns.singleton.register.EnumSinglton;
+
+import java.lang.reflect.Constructor;
 
 /**
  * @author whd.java@gmail.com
@@ -9,31 +12,32 @@ import java.util.concurrent.CountDownLatch;
  **/
 public class Test {
 
-    private static final int COUNT = 100;
+    private static final int COUNT = 500;
 
     public static void main(String[] args) {
 
-        CountDownLatch downLatch = new CountDownLatch(COUNT);
+//        CountDownLatch downLatch = new CountDownLatch(COUNT);
+        long start = System.currentTimeMillis();
+//        for (int i = 0; i < COUNT; i++) {
+////            new Thread(() -> {
+////                HungrySingleton hungrySingleton = HungrySingleton.getInstance();
+////                NoSafeLazySingleton hungrySingleton = NoSafeLazySingleton.getInstance();
+////                SafeLazySingleton hungrySingleton = SafeLazySingleton.getInstance();
+//                SafeLazyInnerClassSingleton hungrySingleton = SafeLazyInnerClassSingleton.getInstance();
+//                System.out.printf("%d : %s %n", System.currentTimeMillis(), hungrySingleton);
+////                downLatch.countDown();
+////            }).start();
+//        }
 
-        for (int i = 0; i < COUNT; i++) {
-            new Thread(() -> {
-//                HungrySingleton hungrySingleton = HungrySingleton.getInstance();
-                NoSafeLazySingleton hungrySingleton = NoSafeLazySingleton.getInstance();
-                System.out.printf("%d : %s %n", System.currentTimeMillis(), hungrySingleton);
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                downLatch.countDown();
-            }).start();
-        }
+//        try {
+////            downLatch.await();
+//            long time = System.currentTimeMillis() - start;
+//            System.out.println("time = " + time);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        try {
-            downLatch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        EnumSinglton.INSTANCE.getInstance();
 
     }
 }
